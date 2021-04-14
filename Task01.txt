@@ -1,0 +1,77 @@
+Do a write up for the followings:? 
+
+1. Difference between HTTP1.1 vs HTTP2 
+
+HTTP/1.1, which keeps all requests and responses in plain text format
+HTTP/2 uses the binary framing layer to encapsulate all messages in binary format
+
+HTTP/1.1 use separate TCP connection to fetch each URL
+HTTP/2 is multiplexed, i.e., it can initiate multiple requests in parallel over a single TCP connection
+
+HTTP/1.1 does not provide a method for a server to direct clients to discard these cached credentials which is a big security risk.
+Web browsers only support HTTP/2 via encrypted connections, increasing user and application security.
+
+HTTP1.1 - Response time is high
+HTTP2  - Response time is low
+
+key differences to HTTP/1.1 vs HTTP/2
+
+HTTP/2 is binary, instead of textual
+HTTP/2 is fully multiplexed, instead of ordered and blocking
+HTTP/2 can therefore use one connection for parallelism
+HTTP/2 uses header compression to reduce overhead caused by TCP’s slow start mechanism.
+HTTP/2 allows servers to “push” responses proactively into client caches
+
+2. http version history 
+
+HTTP/0.9 - Year of release 1991
+It is extremely simple requests consist of a single line and start with the only possible method GET followed by the path to the resource.
+There were no status or error messages.
+
+HTTP/1.0 - Year of release 1996
+Version information is now sent within each request.A status code is also sent at the beginning of the response.The HTTP headers has been introduced.
+The transfer of other documents than plain HTML files has been added.
+
+HTTP/1.1 - Year of release 1997
+HTTP/1.1 standard as defined in RFC 2068 was officially released in January 1997. 
+Improvements and updates to the HTTP/1.1 standard were released under RFC 2616 in June 1999. 
+In 2007, the HTTP Working Group was formed, in part, to revise and clarify the HTTP/1.1 specification.
+
+A connection can be reused.
+Pipelining has been added, allowing to send a second request before the answer for the first one is fully transmitted.
+Cache control mechanism have been introduced.
+
+HTTP2 - Year of release is 2015
+
+HTTP/2 (originally named HTTP/2.0) is a major revision of the HTTP network protocol used by the World Wide Web.
+HTTP/2 is the first new version of HTTP since HTTP/1.1, which was standardized in RFC 2068 in 1997
+The HTTP/2 specification was published as RFC 7540 on May 14, 2015.
+
+It is a binary protocol rather than text.
+It is a multiplexed protocol. Parallel requests can be handled over the same connection, removing the order and blocking issues of the HTTTP/1.1 protocol.
+It compresses headers. As these are often similar among a set of requests, this removes duplication and overhead of data transmitted.
+
+3. List 5 difference between Browser JS(console) vs Nodejs 
+
+In browser module is not required, where as in Nodejs you have to keep your code inside the module.
+In browser “require” is not predefined object, where as Nodejs has it.
+In browsers, the top-level scope is the global scope in Nodejs the top-level scope is not the global scope
+Node has “global”, which is a predefined global object. It contains several functions that are not available in browsers, cause they are needed for server side works only.
+Browsers may have an object named “global”, but it will be the exact one as “window”.
+In browser location/document is predefined object, where as Nodejs doesn’t have it.
+
+4. what happens when you type a URL in the address bar in the browser?
+
+1)Browser checks cache for DNS entry to find the corresponding IP address of website.
+It looks for following cache. If not found in one, then continues checking to the next until found.
+     Browser Cache
+     Operating Systems Cache
+     Router Cache
+     ISP Cache
+2)If not found in cache, ISP’s (Internet Service Provider) DNS server initiates a DNS query to find IP address of server that hosts the domain name.
+3)The requests are sent using small data packets that contain information content of request and IP address it is destined for.
+4)Browser initiates a TCP (Transfer Control Protocol) connection with the server using synchronize(SYN) and acknowledge(ACK) messages.
+5)Browser sends an HTTP request to the web server. GET or POST request.
+6)Server on the host computer handles that request and sends back a response. It assembles a response in some format like JSON, XML and HTML.
+7)Server sends out an HTTP response along with the status of response.
+8)Browser displays HTML content
